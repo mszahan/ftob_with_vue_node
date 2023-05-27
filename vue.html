@@ -22,22 +22,38 @@
     <script>
         // alert(`Version of vue is ${Vue.version}`)
         // so the name in that object has to be template otherwise it wont work
+        // var app = Vue.createApp({
+        //     template: "The counter is {{counter}}",
+        //     data(){
+        //         //return the reactive variable
+        //         return{
+        //             counter: 6
+        //         }
+        //     }
+        // });
+
+        //Now let's create the counter component
         var app = Vue.createApp({
-            template: "The counter is {{counter}}",
-            data(){
-                //return the reactive variable
-                return{
-                    counter: 6
+            template:"<counter/>"
+        });
+
+        app.component("counter", {
+            template: "the counter is: {{count}}",
+            data() {
+                return {
+                    count: 0
                 }
             }
-        });
+
+        })
         // mount the Vue.js application on the <div> having the id "app"
+        // using variable only to callback the data in later parts
         var vm = app.mount("div#app")
 
         // increament the coutner
-        setInterval(function(){
-            vm.counter++
-        }, 1000)
+        // setInterval(function(){
+        //     vm.counter++
+        // }, 1000)
     </script>
 </body>
 </html>
